@@ -1,0 +1,117 @@
+1- Resposta: o valor da soma é 91.
+   Raciocínio:
+
+void main() {
+  var index = 13;
+  var sum = 0;
+  var k = 0;
+  while (k < index) {
+    k = k + 1;
+    sum = sum + k;
+  }
+  print(sum);
+}
+
+______________________________________________________________________________
+
+2- Código para verificar se um número digitado faz parte da sequencia de fibonacci.
+
+import 'dart:io';
+
+void main() {
+  stdout.write('Digite um número inteiro: ');
+  int number = int.parse(stdin.readLineSync()!);
+
+  if (isFibonacciNumber(number)) {
+    print('$number está na sequência de Fibonacci');
+  } else {
+    print('$number não está na sequência de Fibonacci');
+  }
+}
+
+bool isFibonacciNumber(int n) {
+  if (n == 0 || n == 1) {
+    return true;
+  }
+
+  int first = 0;
+  int second = 1;
+  int fibonacci = first + second;
+
+  while (fibonacci <= n) {
+    if (fibonacci == n) {
+      return true;
+    }
+    first = second;
+    second = fibonacci;
+    fibonacci = first + second;
+  }
+
+  return false;
+}
+
+_____________________________________________________________________________________________________
+3- Descubra a lógica e complete o próximo elemento:
+
+
+
+a) 1, 3, 5, 7, 9 -> numeros impares
+
+b) 2, 4, 8, 16, 32, 64, 128 -> o numero é o dobro do anterior
+
+c) 0, 1, 4, 9, 16, 25, 36, 49 -> números quadrados
+
+d) 4, 16, 36, 64, 100 -> progressão aritmética
+
+e) 1, 1, 2, 3, 5, 8, 13 -> fibonacci
+
+f) 2,10, 12, 16, 17, 18, 19, 200 -> números que começam com a letra 'D'
+_____________________________________________________________________________________________________
+
+4 - Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?
+
+
+IMPORTANTE:
+
+a) Considerar a distância de 100km entre a cidade de Ribeirão Preto <-> Franca.
+
+b) Considerar 2 pedágios como obstáculo e que o caminhão leva 5 minutos a mais para passar em cada um deles e o carro possui tag de pedágio (Sem Parar)
+
+c) Explique como chegou no resultado.
+
+
+Usamos a fórmula (tempo = distancia/velocidade).
+
+para o carro: 100 km / 110 km/h = 0,91h
+para o caminhão: tempo = (100 km / 80 km/h) + (1/6) h = 1,375h (esse 1/6 se refere aos 10 minutos que o caminhão gasta no pedágio)
+
+agora, é possível calcular a distancia percorrida por cada veiculo até o ponto de encontro, utilizando a mesma formula, temos:
+
+distancia percorrida pelo carro = 110 km/h x 0,91 h = 100 km
+distancia percorrida pelo caminhão = 80 km/h x 1,375 h = 110 km
+
+a distancia restante para o carro chegar em ribeirão preto é de 0km, pois os 10km da viagem já foram percorridos.
+quanto ao caminhão, a distancia restante é de -10km, pois o caminhão já passou por ribeirão preto, e está seguindo na direção oposta.
+
+ou seja, o carro está mais próximo de ribeirão preto.
+
+_______________________________________________________________________________________________________________
+
+5) Escreva um programa que inverta os caracteres de um string.
+
+IMPORTANTE:
+
+a) Essa string pode ser informada através de qualquer entrada de sua preferência ou pode ser previamente definida no código;
+
+b) Evite usar funções prontas, como, por exemplo, reverse;
+
+void main() {
+  String string = "Exemplo de string para inverter";
+  String invertedString = "";
+
+  for (int i = string.length - 1; i >= 0; i--) {
+    invertedString += string[i];
+  }
+
+  print(invertedString);
+}
